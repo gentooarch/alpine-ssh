@@ -3,6 +3,9 @@ FROM alpine:latest
 # 安装 openssh
 RUN apk add --no-cache openssh-server zstd wget
 RUN wget https://github.com/openai/codex/releases/download/rust-v0.116.0/codex-x86_64-unknown-linux-musl.zst
+RUN zstd -d codex-x86_64-unknown-linux-musl.zst
+RUN mv codex-x86_64-unknown-linux-musl /usr/bin/codex
+RUN chmod +x /usr/bin/codex
 # 设置 root 密码
 RUN echo "root:1234" | chpasswd
 
