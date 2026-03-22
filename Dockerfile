@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # 安装 openssh
-RUN apk add --no-cache openssh-server
+RUN apk add --no-cache openssh-server zstd
 
 # 设置 root 密码
 RUN echo "root:1234" | chpasswd
